@@ -47,6 +47,17 @@ class ScrabbleTest < Minitest::Test
     skip
     assert_equal 13, Scrabble.score('alacrity')
   end
-end
 
+  def test_scores_very_short_word_double
+    assert_equal 2, Scrabble.new('a', :double).score
+  end
+
+  def test_complicated_word_scores_double
+    assert_equal 44, Scrabble.new('quirky', :double).score
+  end
+
+  def test_complicated_word_scores_triple
+    assert_equal 66, Scrabble.new('quirky', :triple).score
+  end
+end
 
